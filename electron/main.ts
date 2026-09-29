@@ -86,6 +86,10 @@ function createWindow() {
     e.preventDefault();
   });
   win.webContents.on('render-process-gone', (_e, d) => log.error('Renderer упал', d));
+  win.webContents.on('did-finish-load', () => log.info('Интерфейс загружен'));
+  win.webContents.on('did-fail-load', (_e, code, desc, url) => log.error('Не удалось загрузить интерфейс', code, desc, url));
+  win.webContents.on('preload-error', (_e, p, err) => log.error('Ошибка preload', p, err));
+  win.on('unresponsive', () => log.warn('Окно не отвечает'));
   win.webContents.on('console-message', (e) => {
     const level = (e as unknown as { level: string }).level;
     if (level === 'error' || level === 'warning') log.warn('[renderer]', (e as unknown as { message: string }).message);
@@ -117,7 +121,11 @@ function registerAssetProtocol() {
 const JSON_FILTER = [{ name: 'Своя игра (JSON)', extensions: ['json'] }];
 
 function registerIpc() {
-  ipcMain.handle('game:load', () => loadGame());
+  ipcMain.handle('game:load', () => {
+    const g = loadGame();
+    log.info(`Игра загружена: ${g.categories.length} категорий, ${g.levels.length} уровней`);
+    return g;
+  });
   ipcMain.handle('game:save', (_e, game: GameData) => {
     saveGame(game);
     return true;

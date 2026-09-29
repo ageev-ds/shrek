@@ -1,0 +1,45 @@
+# Сборка Windows: npm run build:win → dist/ (portable .exe + установщик NSIS)
+appId: com.ageevds.shrekjeopardy
+productName: Своя игра Шрек
+copyright: Фанатская викторина ко дню рождения. Не связана с DreamWorks.
+directories:
+  output: dist
+  buildResources: build
+files:
+  - dist-electron/**
+  - dist-renderer/**
+  - build/icon.png
+  - package.json
+asar: true
+publish: null
+compression: maximum
+electronLanguages:
+  - ru
+  - en-US
+win:
+  target:
+    - target: portable
+      arch: [x64]
+    - target: nsis
+      arch: [x64]
+  icon: build/icon.ico
+  executableName: ShrekJeopardy
+portable:
+  artifactName: Shrek-Jeopardy-${version}-portable.${ext}
+nsis:
+  artifactName: Shrek-Jeopardy-Setup-${version}.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: Своя игра Шрек
+  uninstallDisplayName: Своя игра Шрек
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerLanguages: [ru_RU]
+  language: '1049'
+  deleteAppDataOnUninstall: false
+linux:
+  target: dir
+  icon: build/icon.png

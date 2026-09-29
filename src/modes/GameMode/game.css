@@ -78,6 +78,8 @@
   min-height: 0;
 }
 .team-form {
+  align-self: start;
+  max-height: 100%;
   padding: 1.8rem;
   display: flex;
   flex-direction: column;

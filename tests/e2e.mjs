@@ -16,8 +16,10 @@ const errors = [];
 let step = 0;
 
 async function launch() {
+  // E2E_EXE — путь к собранному (упакованному) приложению; иначе запускается исходный проект
+  const exe = process.env.E2E_EXE;
   const app = await electron.launch({
-    args: [root, '--no-sandbox'],
+    ...(exe ? { executablePath: exe, args: ['--no-sandbox'] } : { args: [root, '--no-sandbox'] }),
     env: { ...process.env, SHREK_USER_DATA: userData, SHREK_WINDOWED: '1' },
   });
   const page = await app.firstWindow();
@@ -68,6 +70,8 @@ await page.waitForSelector('[data-testid="board-grid"]');
 await page.waitForTimeout(1800);
 await shot(page, 'board');
 log('Команды добавлены, поле открыто');
+const memMb = await app.evaluate(({ app }) => Math.round(app.getAppMetrics().reduce((s, m) => s + m.memory.workingSetSize, 0) / 1024));
+log(`Память всех процессов приложения: ${memMb} МБ`);
 
 // ---------- 3. обычный вопрос: верно ----------
 const normalCell = page.locator('.board-cell:not(.cat):not(.auction):not(.played)').first();
