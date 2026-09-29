@@ -1,0 +1,2 @@
+c26a939bc5d586f68c2c9b191a693726e0b0d31686979be209290191dec93260  Shrek-Jeopardy-1.0.0-portable.exe
+f259d6500adbcd53da8556b85583b09ccae0adfe1744c5b3ef5c89e9f62e5db3  Shrek-Jeopardy-Setup-1.0.0.exe
