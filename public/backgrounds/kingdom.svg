@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2f5a"/><stop offset="0.45" stop-color="#b85c7a"/><stop offset="0.75" stop-color="#f7b267"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.7" r="0.5"><stop offset="0" stop-color="#ffe0a3" stop-opacity="0.9"/><stop offset="1" stop-color="#ffe0a3" stop-opacity="0"/></radialGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <g fill="#fff" opacity="0.8"><circle cx="200" cy="120" r="2"/><circle cx="420" cy="80" r="1.5"/><circle cx="760" cy="150" r="2"/><circle cx="1300" cy="90" r="2"/><circle cx="1600" cy="160" r="1.5"/><circle cx="1800" cy="70" r="2"/></g>
+  <path d="M0 720 C300 620 520 660 760 600 C1000 540 1200 640 1480 600 C1680 570 1820 620 1920 600 L1920 1080 L0 1080Z" fill="#5c6b3a"/>
+  <!-- город -->
+  <g fill="#3a2c4a">
+    <rect x="620" y="420" width="70" height="220"/><path d="M610 425 L655 330 L700 425Z"/>
+    <rect x="720" y="360" width="90" height="280"/><path d="M710 365 L765 250 L820 365Z"/>
+    <rect x="840" y="300" width="120" height="340"/><path d="M830 305 L900 160 L970 305Z"/>
+    <rect x="990" y="340" width="100" height="300"/><path d="M980 345 L1040 220 L1100 345Z"/>
+    <rect x="1120" y="400" width="80" height="240"/><path d="M1110 405 L1160 300 L1210 405Z"/>
+    <rect x="1230" y="450" width="60" height="190"/><path d="M1222 455 L1260 380 L1298 455Z"/>
+  </g>
+  <g fill="#ffd27a"><rect x="880" y="360" width="14" height="22" rx="7"/><rect x="910" y="420" width="14" height="22" rx="7"/><rect x="750" y="420" width="12" height="20" rx="6"/><rect x="1030" y="400" width="12" height="20" rx="6"/><rect x="1150" y="450" width="12" height="20" rx="6"/><rect x="650" y="480" width="10" height="18" rx="5"/></g>
+  <path d="M900 160 L900 120 L940 132 L900 142" fill="#d4a017"/>
+  <path d="M0 800 C260 700 520 760 760 720 C1040 670 1260 760 1560 720 C1760 690 1860 720 1920 740 L1920 1080 L0 1080Z" fill="#3f5a2b"/>
+  <path d="M0 900 C300 820 640 880 960 850 C1300 820 1600 880 1920 850 L1920 1080 L0 1080Z" fill="#2c3f1e"/>
+  <path d="M960 1080 C940 980 900 920 860 860 L1060 860 C1020 920 980 980 960 1080Z" fill="#b89d6b" opacity="0.6"/>
+  <g fill="#1d2a14"><circle cx="120" cy="860" r="80"/><circle cx="220" cy="890" r="70"/><circle cx="1760" cy="870" r="90"/><circle cx="1860" cy="900" r="70"/></g>
+  <rect width="1920" height="1080" filter="url(#grain)" fill="#fff" opacity="0.6"/>
+</svg>

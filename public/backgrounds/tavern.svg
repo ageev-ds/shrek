@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a170d"/><stop offset="1" stop-color="#4a2c18"/></linearGradient>
+    <filter id="wood"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.12" numOctaves="3" seed="3"/><feColorMatrix values="0 0 0 0 0.35 0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0.6 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    <radialGradient id="candle" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffcf6b" stop-opacity="0.6"/><stop offset="1" stop-color="#ffcf6b" stop-opacity="0"/></radialGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.45" r="0.75"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#wall)"/>
+  <g>
+    <rect width="1920" height="1080" fill="#fff" filter="url(#wood)"/>
+  </g>
+  <g stroke="#1a0e07" stroke-width="6" opacity="0.7">
+    <line x1="0" y1="140" x2="1920" y2="140"/><line x1="0" y1="300" x2="1920" y2="300"/><line x1="0" y1="460" x2="1920" y2="460"/><line x1="0" y1="620" x2="1920" y2="620"/><line x1="0" y1="780" x2="1920" y2="780"/><line x1="0" y1="940" x2="1920" y2="940"/>
+  </g>
+  <g fill="#1a0e07">
+    <rect x="0" y="0" width="1920" height="70"/>
+    <rect x="180" y="0" width="60" height="1080"/><rect x="1680" y="0" width="60" height="1080"/>
+  </g>
+  <g fill="#8f5f36"><circle cx="210" cy="220" r="8"/><circle cx="210" cy="540" r="8"/><circle cx="210" cy="860" r="8"/><circle cx="1710" cy="220" r="8"/><circle cx="1710" cy="540" r="8"/><circle cx="1710" cy="860" r="8"/></g>
+  <!-- полки -->
+  <rect x="300" y="250" width="320" height="18" fill="#6b4226"/>
+  <rect x="1300" y="250" width="320" height="18" fill="#6b4226"/>
+  <g>
+    <path d="M330 250 L330 190 Q350 170 370 190 L370 250Z" fill="#2e7d32" opacity="0.8"/>
+    <path d="M400 250 L400 170 L430 170 L430 250Z" fill="#8e3b46" opacity="0.8"/>
+    <circle cx="500" cy="220" r="30" fill="#b85c20" opacity="0.8"/>
+    <path d="M1340 250 L1340 200 Q1370 180 1400 200 L1400 250Z" fill="#6a5acd" opacity="0.8"/>
+    <circle cx="1480" cy="222" r="28" fill="#c0392b" opacity="0.85"/>
+    <path d="M1470 196 Q1480 180 1492 190" stroke="#2e7d32" stroke-width="5" fill="none"/>
+    <rect x="1540" y="190" width="40" height="60" rx="6" fill="#d4a017" opacity="0.7"/>
+  </g>
+  <!-- свечи -->
+  <g>
+    <circle cx="420" cy="620" r="220" fill="url(#candle)"/><circle cx="1500" cy="620" r="220" fill="url(#candle)"/><circle cx="960" cy="120" r="300" fill="url(#candle)"/>
+    <rect x="410" y="620" width="20" height="70" fill="#f5e6c8"/><path d="M420 590 Q432 606 420 620 Q408 606 420 590Z" fill="#ffcf6b"/>
+    <rect x="1490" y="620" width="20" height="70" fill="#f5e6c8"/><path d="M1500 590 Q1512 606 1500 620 Q1488 606 1500 590Z" fill="#ffcf6b"/>
+  </g>
+  <!-- люстра -->
+  <g stroke="#1a0e07" stroke-width="5" fill="none">
+    <line x1="960" y1="0" x2="960" y2="90"/>
+    <ellipse cx="960" cy="110" rx="160" ry="24"/>
+  </g>
+  <g fill="#f5e6c8"><rect x="810" y="80" width="12" height="30"/><rect x="890" y="76" width="12" height="30"/><rect x="1018" y="76" width="12" height="30"/><rect x="1098" y="80" width="12" height="30"/></g>
+  <g fill="#ffcf6b"><circle cx="816" cy="72" r="7"/><circle cx="896" cy="68" r="7"/><circle cx="1024" cy="68" r="7"/><circle cx="1104" cy="72" r="7"/></g>
+  <!-- стойка -->
+  <rect x="0" y="930" width="1920" height="150" fill="#3b2417"/>
+  <rect x="0" y="920" width="1920" height="22" fill="#6b4226"/>
+  <rect width="1920" height="1080" fill="url(#vig)"/>
+</svg>

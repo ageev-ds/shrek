@@ -1,0 +1,128 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.backdrop-img {
+  position: absolute;
+  inset: -40px;
+  background-size: cover;
+  background-position: center;
+}
+.backdrop-dim {
+  position: absolute;
+  inset: 0;
+}
+.backdrop-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+.fireflies {
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+}
+.firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff6a8;
+  box-shadow: 0 0 10px 4px rgba(255, 240, 140, 0.7), 0 0 30px 10px rgba(255, 220, 90, 0.25);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 12, 4, 0.72);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+}
+.modal {
+  max-width: 94vw;
+  max-height: 92vh;
+  overflow: auto;
+  padding: 2.2rem 2.4rem;
+}
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+}
+
+.saved-badge {
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(245, 230, 200, 0.25);
+}
+.saved-badge.saved {
+  color: var(--ok-light);
+}
+.saved-badge.saving {
+  color: var(--cream-dim);
+}
+.saved-badge.error {
+  color: #fff;
+  background: var(--danger);
+}
+
+.logo {
+  text-align: center;
+  line-height: 1;
+}
+.logo h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.35em;
+}
+.logo-word {
+  display: inline-flex;
+  white-space: nowrap;
+}
+.logo-letter {
+  display: inline-block;
+  background: linear-gradient(180deg, #fff3b0 0%, var(--gold-light) 35%, var(--gold) 60%, #8a5f06 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.025em #2a1608;
+  filter: drop-shadow(0 0.05em 0 #2a1608) drop-shadow(0 0.12em 0.18em rgba(0, 0, 0, 0.6));
+}
+.logo-sub {
+  margin: 0.8rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.26em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-shadow: var(--shadow-text);
+}
+
+.plaque {
+  display: inline-block;
+  padding: 0.5em 1.4em;
+  background: linear-gradient(180deg, var(--wood-700), var(--wood-900));
+  border: 3px solid var(--wood-950);
+  border-radius: 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 220, 160, 0.25), 0 8px 16px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--gold-light);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+  outline: 2px solid rgba(212, 160, 23, 0.4);
+  outline-offset: -7px;
+}

@@ -1,0 +1,38 @@
+:root {
+  --swamp-950: #121f0d;
+  --swamp-900: #1f3317;
+  --swamp-800: #2b4520;
+  --swamp-700: #3a5a2b;
+  --swamp-500: #6b8e23;
+  --swamp-300: #a4c26a;
+  --wood-950: #1e120b;
+  --wood-900: #3b2417;
+  --wood-800: #4f301e;
+  --wood-700: #6b4226;
+  --wood-500: #8f5f36;
+  --gold: #d4a017;
+  --gold-light: #f1c94b;
+  --gold-dark: #9a7310;
+  --cream: #f5e6c8;
+  --cream-dim: #d9c7a3;
+  --danger: #c0392b;
+  --danger-light: #e8604f;
+  --ok: #58a834;
+  --ok-light: #7fd14f;
+  --ink: #1b120b;
+
+  --font-display: 'Rubik', 'Segoe UI', sans-serif;
+  --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+
+  --shadow-panel: 0 1px 0 rgba(255, 230, 180, 0.18) inset, 0 -2px 0 rgba(0, 0, 0, 0.35) inset,
+    0 18px 40px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.5);
+  --shadow-text: 0 2px 0 rgba(0, 0, 0, 0.55), 0 4px 14px rgba(0, 0, 0, 0.45);
+
+  /* Текстура дерева: волокна через feTurbulence */
+  --wood-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.28' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.08 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='400' height='200' filter='url(%23w)'/%3E%3C/svg%3E");
+  --noise-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}

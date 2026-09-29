@@ -1,0 +1,338 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--swamp-950);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.9vw, 18px);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--wood-500), var(--wood-700));
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Лёгкая «шероховатость» поверх всего экрана */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--noise-texture);
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+  z-index: 9999;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- деревянная панель ---------- */
+.wood {
+  position: relative;
+  background-color: var(--wood-800);
+  background-image: var(--wood-texture),
+    linear-gradient(180deg, rgba(255, 220, 160, 0.1), rgba(0, 0, 0, 0.25));
+  background-size: 400px 200px, 100% 100%;
+  border: 3px solid var(--wood-950);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-panel);
+  outline: 2px solid rgba(212, 160, 23, 0.35);
+  outline-offset: -9px;
+}
+
+/* Латунные заклёпки по углам */
+.wood.rivets::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 6px 6px, #f7dc86 0 2px, #a57912 3px 5px, transparent 6px) top left / 12px 12px no-repeat,
+    radial-gradient(circle at 6px 6px, #f7dc86 0 2px, #a57912 3px 5px, transparent 6px) top right / 12px 12px no-repeat,
+    radial-gradient(circle at 6px 6px, #f7dc86 0 2px, #a57912 3px 5px, transparent 6px) bottom left / 12px 12px no-repeat,
+    radial-gradient(circle at 6px 6px, #f7dc86 0 2px, #a57912 3px 5px, transparent 6px) bottom right / 12px 12px no-repeat;
+}
+
+.parchment {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.5), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(120, 80, 30, 0.25), transparent 55%),
+    var(--cream);
+  color: var(--ink);
+  border-radius: var(--radius-m);
+  box-shadow: inset 0 0 40px rgba(120, 80, 30, 0.45), 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- кнопки ---------- */
+.btn {
+  --b1: var(--gold-light);
+  --b2: var(--gold);
+  --b3: var(--gold-dark);
+  --fg: var(--wood-950);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.75em 1.6em;
+  border: 2px solid var(--wood-950);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--b1), var(--b2) 55%, var(--b3));
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset, 0 -3px 0 rgba(0, 0, 0, 0.25) inset,
+    0 6px 0 var(--wood-950), 0 10px 18px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.15s ease, box-shadow 0.12s ease;
+  white-space: nowrap;
+}
+.btn:hover:not(:disabled) {
+  filter: brightness(1.1) saturate(1.1);
+  transform: translateY(-2px);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset, 0 -3px 0 rgba(0, 0, 0, 0.25) inset,
+    0 2px 0 var(--wood-950), 0 4px 8px rgba(0, 0, 0, 0.45);
+}
+.btn:disabled {
+  filter: grayscale(0.85) brightness(0.7);
+  cursor: not-allowed;
+}
+.btn.big {
+  font-size: 1.5rem;
+  padding: 0.7em 2.2em;
+}
+.btn.small {
+  font-size: 0.85rem;
+  padding: 0.45em 1em;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 3px 0 var(--wood-950), 0 6px 10px rgba(0, 0, 0, 0.35);
+}
+.btn.green {
+  --b1: var(--ok-light);
+  --b2: var(--ok);
+  --b3: #356b1d;
+  --fg: #0d1f06;
+}
+.btn.red {
+  --b1: #f07b6c;
+  --b2: var(--danger);
+  --b3: #7d2018;
+  --fg: #fff4ee;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+.btn.wood-btn {
+  --b1: var(--wood-500);
+  --b2: var(--wood-700);
+  --b3: var(--wood-900);
+  --fg: var(--cream);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+.btn.ghost {
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--cream);
+  border-color: rgba(245, 230, 200, 0.35);
+  box-shadow: none;
+  text-shadow: none;
+}
+.btn.ghost:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.55);
+}
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.3em;
+  height: 2.3em;
+  border-radius: 50%;
+  border: 2px solid rgba(245, 230, 200, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.15s, transform 0.12s;
+}
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: scale(1.08);
+}
+.icon-btn.danger:hover {
+  background: var(--danger);
+}
+
+/* ---------- поля ввода ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+}
+.field > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cream-dim);
+}
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.65em 0.85em;
+  border-radius: var(--radius-s);
+  border: 2px solid var(--wood-950);
+  background: rgba(245, 230, 200, 0.94);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--gold);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(212, 160, 23, 0.35);
+}
+.textarea {
+  resize: vertical;
+  min-height: 5em;
+  line-height: 1.4;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  cursor: pointer;
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius-s);
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s;
+}
+.check:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.check.on {
+  border-color: var(--gold);
+  background: rgba(212, 160, 23, 0.18);
+}
+.check input {
+  width: 1.15em;
+  height: 1.15em;
+  accent-color: var(--gold);
+}
+
+input[type='range'] {
+  accent-color: var(--gold);
+  width: 100%;
+}
+
+.muted {
+  color: var(--cream-dim);
+  opacity: 0.85;
+}
+
+.gold-text {
+  color: var(--gold-light);
+  text-shadow: var(--shadow-text);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.spacer {
+  flex: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--cream);
+  white-space: nowrap;
+}
+.badge.warn {
+  background: #e67e22;
+  color: #1b0d02;
+}
+.badge.gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.05em 0.45em;
+  border-radius: 5px;
+  border: 1px solid rgba(245, 230, 200, 0.4);
+  border-bottom-width: 3px;
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.35);
+}
